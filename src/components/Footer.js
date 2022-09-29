@@ -1,26 +1,31 @@
 import styled from "styled-components";
+import { useState } from "react";
 
-const TOTAL = 4;
+// import Button from "./Button";
 
-const buttonsZap = [
-  { text: "Não lembrei", color: "red", id: 0 },
-  { text: "Quase não lembrei", color: "orange", id: 1 },
-  { text: "Zap!", color: "green", id: 2 },
-];
+export default function Footer({ cards, setCards }) {
+  const buttonsZap = [
+    { text: "Não lembrei", color: "red", id: 0, type: "wrong" },
+    { text: "Quase não lembrei", color: "orange", id: 1, type: "doubt" },
+    { text: "Zap!", color: "green", id: 2, type: "correct" },
+  ];
 
-export default function Footer() {
+  const [resultText, setResultText] = useState(0);
+
+  const toAnswer = function () {};
+
   return (
     <ContainerFooter>
       <BoxButtons>
         {buttonsZap.map((button) => (
-          <Button key={button.id} color={button.color}>
+          <Button key={button.id} color={button.color} onClick={toAnswer}>
             {button.text}
           </Button>
         ))}
       </BoxButtons>
       <ResultText>
-        <span>0</span>
-        <span>/{TOTAL} </span>Concluídos
+        <span>{resultText}</span>
+        <span>/{cards.length} </span>Concluídos
       </ResultText>
     </ContainerFooter>
   );
