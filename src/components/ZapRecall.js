@@ -5,7 +5,7 @@ import Flashcards from "./Flashcards";
 import Footer from "./Footer";
 import { useState } from "react";
 
-const CARDS_TO_SHOW = 4;
+const CARDS_TO_SHOW = 8;
 
 export default function ZapRecall({ decks }) {
   const deck = [...decks]
@@ -13,7 +13,7 @@ export default function ZapRecall({ decks }) {
     .slice(0, CARDS_TO_SHOW);
 
   const [cards, setCards] = useState(
-    deck.map((card) => ({
+    deck.map((card, index) => ({
       ...card,
       status: "unanswered",
       type: "hidden",
@@ -30,8 +30,9 @@ export default function ZapRecall({ decks }) {
 }
 
 const Container = styled.div`
-  max-width: 375px;
-  max-height: 667px;
+  width: 100vw;
+  height: 100vh;
+  max-width: 450px;
   background-color: #fb6b6b;
   margin: 0 auto;
 `;

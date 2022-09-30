@@ -17,11 +17,17 @@ export default function Flashcards({ cards, setCards }) {
   );
 }
 
-const ContainerFlashcards = styled.section`
+const ContainerFlashcards = styled.main`
+  background-color: #fb6b6b;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
   gap: 25px;
-  margin-bottom: 32px;
+  padding-top: 150px;
+  padding-bottom: 142px;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
